@@ -254,7 +254,6 @@ class SettingsPageStateState extends State<SettingsPageState> {
                     ),
                     margin: EdgeInsets.only(left: 30, right: 30),
                   ),
-Text('hello'),
                   // About me
                   Container(
                     child: Text(
