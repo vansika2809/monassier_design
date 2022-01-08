@@ -55,8 +55,7 @@ dependencies:
   path:
   sqflite:
   url_launcher:
-  agora_rtc_engine:
-  permission_handler:
+
 
 
 dev_dependencies:
