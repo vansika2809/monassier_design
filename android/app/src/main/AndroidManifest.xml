@@ -2,10 +2,14 @@
     package="com.example.monassier_design">
 
     <!-- The Agora SDK requires Bluetooth permissions in case users are using Bluetooth devices.-->
-    <uses-permission android:name="android.permission.BLUETOOTH" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
    <application
         android:label="monassier_design"
         android:icon="@mipmap/ic_launcher">
+       <meta-data android:name="com.google.android.geo.API_KEY"
+           android:value="AIzaSyAUI_rS2Q3arCxB-xQuUg5CifxMv3_tlAY"/>
         <activity
             android:name=".MainActivity"
             android:launchMode="singleTop"

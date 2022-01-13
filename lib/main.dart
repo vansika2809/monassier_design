@@ -229,6 +229,7 @@ class _MyAppState extends State<MyApp> {
             firebaseStorage: this.firebaseStorage,
           ),
         ),
+
       ],
       child: MaterialApp(
         title: AppConstants.appTitle,

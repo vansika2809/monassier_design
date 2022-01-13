@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:monassier_design/map_screen/google_map.dart';
 import 'package:monassier_design/google_page/splash_page.dart';
 import 'package:monassier_design/login_page.dart';
 import 'package:monassier_design/welcome.dart';
@@ -214,12 +215,20 @@ class _ContactState extends State<Contact> {
                                 SizedBox(
                                   width: screenWidth / 100,
                                 ),
-                                Text(
-                                  'Localiser sur le plan',
-                                  style: TextStyle(
-                                    color: Colors.blue.shade700,
-                                    fontWeight: FontWeight.bold,
-                                    fontSize: screenWidth/20
+                                GestureDetector(
+                                  onTap: (){
+                                    Navigator.push(context, MaterialPageRoute(builder: (context) =>GMap() ,));
+
+
+
+                                  },
+                                  child: Text(
+                                    'Localiser sur le plan',
+                                    style: TextStyle(
+                                      color: Colors.blue.shade700,
+                                      fontWeight: FontWeight.bold,
+                                      fontSize: screenWidth/20
+                                    ),
                                   ),
                                 )
                               ],
