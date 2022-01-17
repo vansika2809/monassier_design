@@ -14,6 +14,7 @@ class Contact extends StatefulWidget {
 }
 
 class _ContactState extends State<Contact> {
+  TimeOfDay _time= TimeOfDay.now();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -49,13 +50,12 @@ class _ContactState extends State<Contact> {
               ),
             ),
             Padding(
-              padding: const EdgeInsets.only(top: 20,left: 20
-              ),
+              padding: const EdgeInsets.only(top: 20, left: 20),
               child: Align(
                 alignment: Alignment.topLeft,
                 child: Container(
                   height: 50,
-                   // color: Colors.black,
+                  // color: Colors.black,
                   width: screenWidth / 1.5,
                   child: Column(
                     children: [
@@ -91,7 +91,7 @@ class _ContactState extends State<Contact> {
                   Padding(
                     padding: const EdgeInsets.only(top: 142.0),
                     child: Container(
-                      height: screenHeight/1.6,
+                      height: screenHeight / 1.6,
                       width: screenWidth,
                       decoration: BoxDecoration(
                           color: Colors.white,
@@ -167,9 +167,21 @@ class _ContactState extends State<Contact> {
                                   children: [
                                     Padding(
                                       padding: const EdgeInsets.all(8.0),
-                                      child: Icon(
-                                        Icons.access_time_sharp,
-                                        color: Colors.green.shade300,
+                                      child: GestureDetector(
+                                        onTap: () async{
+                                       TimeOfDay? time= await  showTimePicker(
+                                              context: context,
+                                              initialTime: TimeOfDay.now());
+                                       if(time!=null){
+                                         setState(() {
+                                           _time=time;
+                                         });
+                                       }
+                                        },
+                                        child: Icon(
+                                          Icons.access_time_sharp,
+                                          color: Colors.green.shade300,
+                                        ),
                                       ),
                                     ),
                                     SizedBox(
@@ -216,19 +228,19 @@ class _ContactState extends State<Contact> {
                                   width: screenWidth / 100,
                                 ),
                                 GestureDetector(
-                                  onTap: (){
-                                    Navigator.push(context, MaterialPageRoute(builder: (context) =>GMap() ,));
-
-
-
+                                  onTap: () {
+                                    Navigator.push(
+                                        context,
+                                        MaterialPageRoute(
+                                          builder: (context) => GMap(),
+                                        ));
                                   },
                                   child: Text(
                                     'Localiser sur le plan',
                                     style: TextStyle(
-                                      color: Colors.blue.shade700,
-                                      fontWeight: FontWeight.bold,
-                                      fontSize: screenWidth/20
-                                    ),
+                                        color: Colors.blue.shade700,
+                                        fontWeight: FontWeight.bold,
+                                        fontSize: screenWidth / 20),
                                   ),
                                 )
                               ],
@@ -243,7 +255,6 @@ class _ContactState extends State<Contact> {
                               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                               children: [
                                 Row(
-
                                   children: [
                                     Padding(
                                       padding: const EdgeInsets.all(8.0),
@@ -252,24 +263,26 @@ class _ContactState extends State<Contact> {
                                         color: Colors.blue.shade700,
                                       ),
                                     ),
-
                                     GestureDetector(
-                                      onTap: (){
-                                        Navigator.push(context, MaterialPageRoute(builder: (context) =>WelcomePage() ,));
+                                      onTap: () {
+                                        Navigator.push(
+                                            context,
+                                            MaterialPageRoute(
+                                              builder: (context) =>
+                                                  WelcomePage(),
+                                            ));
                                       },
                                       child: Text(
                                         'Appeler',
                                         style: TextStyle(
                                             color: Colors.blue.shade700,
                                             fontWeight: FontWeight.bold,
-                                            fontSize: screenWidth/20
-                                        ),
+                                            fontSize: screenWidth / 20),
                                       ),
                                     )
                                   ],
                                 ),
                                 Row(
-
                                   children: [
                                     Padding(
                                       padding: const EdgeInsets.all(8.0),
@@ -278,23 +291,25 @@ class _ContactState extends State<Contact> {
                                         color: Colors.blue.shade700,
                                       ),
                                     ),
-
                                     GestureDetector(
-                                      onTap: (){
-                                        Navigator.push(context, MaterialPageRoute(builder: (context) =>SplashPage() ,));
+                                      onTap: () {
+                                        Navigator.push(
+                                            context,
+                                            MaterialPageRoute(
+                                              builder: (context) =>
+                                                  SplashPage(),
+                                            ));
                                       },
                                       child: Text(
                                         'Ecrire',
                                         style: TextStyle(
                                             color: Colors.blue.shade700,
                                             fontWeight: FontWeight.bold,
-                                            fontSize: screenWidth/20
-                                        ),
+                                            fontSize: screenWidth / 20),
                                       ),
                                     )
                                   ],
                                 ),
-
                               ],
                             ),
                           )
